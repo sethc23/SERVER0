@@ -1,0 +1,46 @@
+#!/bin/bash
+
+ID=0
+
+# set hostname
+sudo hostname 
+sudo sh -c "echo 'SERVER'$ID > /etc/hostname"
+
+# add user as sudoer
+adduser $USER sudo
+
+# see networking
+-- 3. NETWORKING
+curl -s http://pastebin.com/raw.php?i=2Lufr9c0
+
+# create ssh,ssl
+# login,logout,copy key to auth
+
+scp -P 9092 ub2@10.0.1.52
+
+-- CONFIGURE root
+sudo ln -s $HOME/.scripts /root/
+sudo ln -s $SERV_HOME/local_config /root/
+sudo rm -fR /root/.bashrc && sudo rm -fR /root/.profile
+sudo ln -s /root/local_config/.bashrc /root/
+sudo ln -s /root/local_config/.profile /root/
+
+<< -- EMACS -- >>
+VC Follow Symlink -> set to 'Visit and Warn'
+Backup By Copying -> disable
+Electric Indent -> disable
+
+
+#HOUSECLEAN
+apt-get autoclean # only removes files that cannot be downloaded anymore (obsolete)
+apt-get clean
+#refresh
+apt-get update #resync package index
+apt-get dist-upgrade
+apt-get upgrade #newest versions of all packages, update must be run first
+#would upgrade you to the latest kernel in the repositories
+#dist-upgrade is also able to remove existing packages if required
+# fix Broken packages -f 
+apt-get -f install
+dpkg --configure -a
+
