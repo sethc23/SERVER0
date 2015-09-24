@@ -47,17 +47,4 @@
         changed = yellow bold
         untracked = red bold
 
-[submodule "seamless_yelp_scraping"]
-	url = git@github.com:sethc23/seamless_yelp_scraping.git
-[submodule "logrotate_config_tester"]
-	url = git@github.com:sethc23/logrotate_config_tester.git
-[submodule "Lua"]
-	url = git@github.com:sethc23/Lua.git
-[submodule "NYC_GIS"]
-	url = git@github.com:sethc23/NYC_GIS.git
-[submodule "PastebinPython"]
-	url = git@github.com:sethc23/PastebinPython.git
-[submodule "py_classes"]
-	url = git@github.com:sethc23/py_classes.git
-[submodule "blog"]
-	url = git@github.com:sethc23/sethc23.github.io.git
+

@@ -5,6 +5,12 @@
 #echo $TERM
 #xterm
 
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
 source /etc/profile
 
 non_root_user=`getent passwd 1000 | grep :1000: | sed -r 's/([a-zA-Z0-9]+):(.*)$/\1/g'`
@@ -12,7 +18,7 @@ non_root_user=`getent passwd 1000 | grep :1000: | sed -r 's/([a-zA-Z0-9]+):(.*)$
 export SERVER_ID=`hostname | sed -r 's/SERVER//g'`
 export SERVER=`hostname`
 export ALIAS='.alias_s'$SERVER_ID
-export SERV_HOME=/home/$non_root_user/$SERVER
+export SERV_HOME=$HOME/$SERVER
 export SHELL_CONFIG=.bashrc
 export ROOT=root
 export ROOT_GRP=root
@@ -37,11 +43,11 @@ if [[ $SERVER_ID != 3 ]]; then
     export SHARE3_SERVER=SERVER3
 fi
 
-export BD=$HOME/BD_Scripts
-export GIT_BD=$J/BD_Scripts
-export GIT_SERV_HOME=$J/system_config
-export APORO=$J/aporo
-export APRINTO=$J/aprinto
+export BD=$SHARE2/BD_Scripts
+#export GIT_BD=$J/BD_Scripts
+#export GIT_SERV_HOME=$J/system_config
+#export APORO=$J/aporo
+#export APRINTO=$J/aprinto
 #export IPY=$SERV_HOME/ipython
 #export PYTHONPATH=$IPY/scripts/startup.py
 export LIBDIR=/usr/local/lib/syslog-ng
@@ -89,7 +95,7 @@ export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
 # ---------------------------------------
 # Git
-export GIT_CONFIG=$HOME/.gitconfig
+#export GIT_CONFIG=$HOME/.gitconfig # set somewhere else apparently
 #export GIT_TRACE=$HOME/.git/trace_log.txt
 
 # check the window size after each command and, if necessary,
@@ -126,11 +132,23 @@ test -r $d && eval "$(dircolors $d)"
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-_home=/home/$non_root_user
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+#if ! shopt -oq posix; then
+#  if [ -f /usr/share/bash-completion/bash_completion ]; then
+#    . /usr/share/bash-completion/bash_completion
+#  elif [ -f /etc/bash_completion ]; then
+#    . /etc/bash_completion
+#  fi
+#fi
+
+_home=$HOME
 _dir=$_home/.completers
 if [ -d $_dir ]; then
     for i in `env ls $_dir`; do
-#	echo $_dir/$i
+	#echo $_dir/$i
 	. $_dir/$i
     done
 fi
