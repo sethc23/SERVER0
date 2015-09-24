@@ -11,6 +11,7 @@
         filemode = true
         bare = false
         logallrefupdates = true
+	editor = emacs_nw
 [diff]
         tool = ext_diff
 [difftool "ext_diff"]
