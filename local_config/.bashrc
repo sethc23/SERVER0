@@ -24,6 +24,9 @@ export ROOT=root
 export ROOT_GRP=root
 export SSHFS=/usr/bin/sshfs
 
+# Create var for sending with SSH
+export CLIENT_HOST=$SERVER 
+
 # setup quick folders for sharing among ubuntu cluster
 for n in 1 2 4 5; do
     if [[ $n != $SERVER_ID ]]; then
@@ -81,7 +84,7 @@ export LANGUAGE="en_US:en"
 export LC_COLLATE="C"
 export CLICOLOR=1
 #export LS_OPTIONS='--color=always'
-export GREP_OPTIONS='--color=always'
+#export GREP_OPTIONS='--color=always'
 export HISTCONTROL=ignoredups:erasedups
 export HISTTIMEFORMAT="%d/%m/%y %T  "
 export HISTIGNORE='*sudo -S*'
