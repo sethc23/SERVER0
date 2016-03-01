@@ -1,5 +1,5 @@
 [user]
-        name = sethc23
+        name = seth_kali
         email = sethc23@users.noreply.github.com
 
 [github]
@@ -47,5 +47,3 @@
         added = green bold
         changed = yellow bold
         untracked = red bold
-
-

@@ -13,7 +13,7 @@ esac
 
 source /etc/profile
 
-non_root_user=`getent passwd 1000 | grep :1000: | sed -r 's/([a-zA-Z0-9]+):(.*)$/\1/g'`
+non_root_user=`getent passwd 1001 | grep :1001: | sed -r 's/([a-zA-Z0-9]+):(.*)$/\1/g'`
 
 export SERVER_ID=`hostname | sed -r 's/SERVER//g'`
 export SERVER=`hostname`
