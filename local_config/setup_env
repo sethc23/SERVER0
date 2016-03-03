@@ -2,9 +2,32 @@
 
 ID=0
 
+cd $HOME
+git clone git@github.com:sethc23/SERVER0.git --origin github
+git clone git@github.com:sethc23/shared_scripts.git --origin github ./.scripts
+
+# KALI
+rm .bashrc .profile
+
+for i in .bashrc .profile .colordiffrc .completers .emacs \
+.inputrc .lessfilter .profile git/.gitconfig git/.gitignore; do 
+    ln -s SERVER0/local_config/$i
+done
+
+sudo su
+cd /root
+
+for i in SERVER0 .scripts; do ln -s /home/kali/$i; done
+
+for i in .bashrc .profile .colordiffrc .completers .emacs \
+.inputrc .lessfilter .profile git/.gitconfig git/.gitignore; do 
+    ln -s SERVER0/local_config/$i
+done
+
 # set hostname
 sudo hostname 
 sudo sh -c "echo 'SERVER'$ID > /etc/hostname"
+
 
 # add user as sudoer
 adduser $USER sudo
