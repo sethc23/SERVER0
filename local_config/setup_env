@@ -1,0 +1,6 @@
+#!/bin/bash
+rm -fr .bashrc .profile
+for i in .bashrc .profile .colordiffrc .completers .emacs \
+.inputrc .lessfilter .profile git/.gitconfig git/.gitignore; do 
+    ln -s SERVER0/local_config/$i
+done
