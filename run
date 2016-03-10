@@ -10,7 +10,7 @@ sudo sh -c "echo 'SERVER'$ID > /etc/hostname"
 adduser $USER sudo
 
 # see networking
--- 3. NETWORKING
+#-- 3. NETWORKING
 curl -s http://pastebin.com/raw.php?i=2Lufr9c0
 
 # create ssh,ssl

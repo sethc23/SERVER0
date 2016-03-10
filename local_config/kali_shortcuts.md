@@ -10,12 +10,17 @@
 ||super+tab|switch application
 ||alt+tab|switch windows
 ||alt+esc|toggle windows
-|System|||
-||super+s|show overview
-||super+a|show applications
-||super+l|lock screen
-||alt+f2|run command
-|Universal Access|||
+|||||
+|Window||||
+||super+up|maximize window
+||super+down|restore window
+||alt+f7|move window
+||alt+f8|resize window
+||shift+super+up|max window vertically
+||shift+super+right|max window horizontally
+||super+left|view split left
+||super+right|view split right
+|||||
 |System|||
 ||super+s|show overview
 ||super+a|show applications
