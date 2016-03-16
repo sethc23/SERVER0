@@ -1,3 +1,28 @@
+#!/bin/bash
+
+if [ $1 = "-h" ] || [ $1 = "--help" ]; then
+    echo ""
+    echo ""
+    echo "  chroot_upon <mount dir> <option>"
+    echo "  where:"
+    echo "    <mount dir> is a mounted directory and chroot target"
+    echo "        and"
+    echo "    <option> is either 'm' or 'u'"
+    echo "            where 'm' means mount additional components (for chroot)"
+    echo "                and 'u' means unmount additional components."
+    echo ""
+    echo "  Examples:"
+    echo ""
+    echo "    ./chroot_upon /mnt m"
+    echo ""
+    echo "            (working in chroot environment,"
+    echo "             then after exiting...)"
+    echo ""
+    echo "    ./chroot_upon /mnt u"
+    echo ""
+    echo ""
+    exit 0
+fi
 
 MNT=$(echo "$1")
 
