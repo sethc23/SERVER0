@@ -1,0 +1,5 @@
+iptables -t nat -F
+iptables -t nat -A POSTROUTING -j MASQUERADE
+ip link set dev usb0 up
+ifconfig usb0 10.42.0.1 netmask 255.255.255.0
+dhclient usb0

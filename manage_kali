@@ -1,0 +1,10 @@
+#!env zsh
+
+
+[[ "$1" = "sign_bootloader" ]] && \
+   apt-get -y install sbsigntool && \
+   sbsign --key ~/KEYS/refind_local.key \
+   	  --cert ~/KEYS/refind_local.crt \
+	  --output /boot/vmlinuz-4.6.0-kali1-amd64-signed \
+	  /boot/vmlinuz-4.6.0-kali1-amd64
+
